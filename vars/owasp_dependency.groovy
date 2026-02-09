@@ -1,4 +1,5 @@
 def call(){
-  dependencyCheck additionalArguments: '--scan ./', odcInstallation: 'OWASP'
-  dependencyCheckPublisher pattern: '**/dependency-check-report.xml'
+    // Added '--purge' to additionalArguments to clean the corrupted DB
+    dependencyCheck additionalArguments: '--scan ./ --purge', odcInstallation: 'OWASP'
+    dependencyCheckPublisher pattern: '**/dependency-check-report.xml'
 }
